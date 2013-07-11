@@ -13,7 +13,7 @@ sub getclientsdetails {
 
 =pod
 
-=head3 getclientsdetails
+=head2 getclientsdetails
 
 	$client->getclientsdetails({
 		clientid => 1,
@@ -32,7 +32,7 @@ sub addclient {
 
 =pod
 
-=head3 addclient
+=head2 addclient
 
 	$client->addclient({
 		firstname => 'first',
@@ -53,7 +53,7 @@ sub updateclient {
 
 =pod
 
-=head3 updateclient
+=head2 updateclient
 
 	$client->updateclient({
 		clientid => 1,
@@ -75,7 +75,7 @@ sub deleteclient {
 
 =pod
 
-=head3 deleteclient
+=head2 deleteclient
 
 	$client->deleteclient({
 		clientid => 1
@@ -94,7 +94,7 @@ sub getclients {
 
 =pod
 
-=head3 getclients
+=head2 getclients
 
 	$client->getclients()
 
@@ -110,7 +110,7 @@ sub getclientpassword {
 
 =pod
 
-=head3 getclientpassword
+=head2 getclientpassword
 
 	$client->getclientpassword({
 		userid => 1
@@ -129,7 +129,7 @@ sub getclientsproducts {
 
 =pod
 
-=head3 getclientsproducts
+=head2 getclientsproducts
 
 	$client->getclientsproducts({
 		clientid => 1
@@ -148,7 +148,7 @@ sub sendemail {
 
 =pod
 
-=head3 sendemail
+=head2 sendemail
 
 	$client->sendemail({
 		id => 1,
