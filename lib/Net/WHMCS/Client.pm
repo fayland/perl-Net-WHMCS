@@ -20,7 +20,7 @@ sub getclientsdetails {
 		stats => 'true',
 	})
 
-http://docs.whmcs.com/API:Get_Clients_Details
+L<http://docs.whmcs.com/API:Get_Clients_Details>
 
 =cut
 
@@ -41,7 +41,7 @@ sub addclient {
 		...
 	})
 
-http://docs.whmcs.com/API:Add_Client
+L<http://docs.whmcs.com/API:Add_Client>
 
 =cut
 
@@ -63,7 +63,7 @@ sub updateclient {
 		...
 	})
 
-http://docs.whmcs.com/API:Update_Client
+L<http://docs.whmcs.com/API:Update_Client>
 
 =cut
 
@@ -81,7 +81,7 @@ sub deleteclient {
 		clientid => 1
 	})
 
-http://docs.whmcs.com/API:Delete_Client
+L<http://docs.whmcs.com/API:Delete_Client>
 
 =cut
 
@@ -98,7 +98,7 @@ sub getclients {
 
 	$client->getclients()
 
-http://docs.whmcs.com/API:Get_Clients
+L<http://docs.whmcs.com/API:Get_Clients>
 
 =cut
 
@@ -116,7 +116,7 @@ sub getclientpassword {
 		userid => 1
 	})
 
-http://docs.whmcs.com/API:Get_Clients_Password
+L<http://docs.whmcs.com/API:Get_Clients_Password>
 
 =cut
 
@@ -135,7 +135,7 @@ sub getclientsproducts {
 		clientid => 1
 	})
 
-http://docs.whmcs.com/API:Get_Clients_Products
+L<http://docs.whmcs.com/API:Get_Clients_Products>
 
 =cut
 
@@ -155,7 +155,7 @@ sub sendemail {
 		messagename => 'blabla'
 	})
 
-http://docs.whmcs.com/API:Send_Email
+L<http://docs.whmcs.com/API:Send_Email>
 
 =cut
 

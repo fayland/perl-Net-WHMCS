@@ -1,6 +1,6 @@
 package Net::WHMCS::Support;
 
-# ABSTRACT: WHMCS API Clients
+# ABSTRACT: WHMCS API Support
 
 use Moo;
 with 'Net::WHMCS::Base';
@@ -13,7 +13,7 @@ sub openticket {
 
 =pod
 
-=head3 openticket
+=head2 openticket
 
 	$client->openticket({
 		clientid => 1,
@@ -22,7 +22,7 @@ sub openticket {
 		message => 'message'
 	});
 
-http://docs.whmcs.com/API:Open_Ticket
+L<http://docs.whmcs.com/API:Open_Ticket>
 
 =cut
 
