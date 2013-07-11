@@ -22,9 +22,16 @@ sub _build_args {
 }
 
 use Net::WHMCS::Client;
+use Net::WHMCS::Support;
+
 has 'client' => (is => 'lazy');
 sub _build_client {
 	Net::WHMCS::Client->new((shift)->_build_args());
+}
+
+has 'support' => (is => 'lazy');
+sub _build_support {
+	Net::WHMCS::Support->new((shift)->_build_args());
 }
 
 =pod
@@ -50,6 +57,8 @@ sub _build_client {
 
 L<http://docs.whmcs.com/API#Internal_API>
 
+NOTE: the modules are incomplete. please feel free to fork on github L<https://github.com/fayland/perl-Net-WHMCS> and send me pull requests.
+
 =head1 PARTS
 
 =head2 client
@@ -60,6 +69,17 @@ L<http://docs.whmcs.com/API#Internal_API>
 	});
 
 L<Net::WHMCS::Client>
+
+=head2 support
+
+	$whmcs->support->openticket({
+		clientid => 1,
+		deptid => 1,
+		subject => 'subject',
+		message => 'message'
+	});
+
+L<Net::WHMCS::Support>
 
 =cut
 
