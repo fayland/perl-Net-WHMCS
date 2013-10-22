@@ -33,7 +33,7 @@ sub build_request {
 	my $resp = $self->ua->post($self->WHMCS_URL, $params);
 	return { result => 'error', message => $resp->status_line } unless $resp->is_success;
 
-	print Dumper(\$resp); use Data::Dumper;
+	# print Dumper(\$resp); use Data::Dumper;
 
 	return decode_json($resp->content);
 }
