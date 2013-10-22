@@ -1,6 +1,6 @@
 package Net::WHMCS;
 
-# ABSTRACT: WHMCS API
+# ABSTRACT: interface to the WHMCS billing and support system
 
 use Moo;
 use Carp 'croak';
