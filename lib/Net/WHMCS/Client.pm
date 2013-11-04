@@ -156,9 +156,36 @@ sub updateclientproduct {
 	$client->getclientsproducts({
 		serviceid => 1,
 		...
-	})
+	});
 
 L<http://docs.whmcs.com/API:Update_Client_Product>
+
+=cut
+
+sub upgradeproduct {
+	my ($self, $params) = @_;
+	$params ||= {};
+	$params->{action} = 'upgradeproduct';
+	foreach my $r (qw/clientid serviceid type newproductid newproductbillingcycle paymentmethod/) {
+		croak "$r is required." unless $params->{$r};
+	}
+	return $self->build_request($params);
+}
+
+=pod
+
+=head2 upgradeproduct
+
+	$client->upgradeproduct({
+		clientid => 1,
+		serviceid => 1,
+		type => 'product',
+		newproductid => 18,
+		newproductbillingcycle => 'monthly',
+		paymentmethod => 'paypal'
+	});
+
+L<http://docs.whmcs.com/API:Upgrade_Product>
 
 =cut
 
@@ -178,7 +205,7 @@ sub validatelogin {
 	$client->validatelogin({
 		email => 'user@domain.com',
 		password2 => 'abc123'
-	})
+	});
 
 L<http://docs.whmcs.com/API:Validate_Login>
 

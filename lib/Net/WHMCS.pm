@@ -23,6 +23,7 @@ sub _build_args {
 
 use Net::WHMCS::Client;
 use Net::WHMCS::Support;
+use Net::WHMCS::Miscellaneous;
 
 has 'client' => (is => 'lazy');
 sub _build_client {
@@ -34,6 +35,11 @@ sub _build_support {
 	Net::WHMCS::Support->new((shift)->_build_args());
 }
 
+has 'misc' => (is => 'lazy');
+
+sub _build_misc {
+	Net::WHMCS::Miscellaneous->new((shift)->_build_args());
+}
 =pod
 
 =head1 SYNOPSIS
@@ -80,6 +86,20 @@ L<Net::WHMCS::Client>
 	});
 
 L<Net::WHMCS::Support>
+
+=head2 misc
+
+	$whmcs->misc->addproduct({
+		type => 'other',
+		gid => 1,
+		name => 'Sample Product',
+		paytype => 'recurring',
+		'pricing[1][monthly]' => '5.00',
+		'pricing[1][annually]' => '50.00',
+		...
+	});
+
+L<Net::WHMCS::Miscellaneous>
 
 =cut
 

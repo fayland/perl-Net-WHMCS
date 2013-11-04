@@ -1,5 +1,8 @@
 Revision history for Perl extension Net-WHMCS
 
+0.04 	2013-11-04
+	- add upgradeproduct and Miscellaneous API
+
 0.03	2013-11-04
 	- add more like updateclientproduct, validatelogin
 
