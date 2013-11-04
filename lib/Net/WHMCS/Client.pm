@@ -5,6 +5,8 @@ package Net::WHMCS::Client;
 use Moo;
 with 'Net::WHMCS::Base';
 
+use Carp 'croak';
+
 sub getclientsdetails {
 	my ($self, $params) = @_;
 	$params->{action} = 'getclientsdetails';
@@ -138,6 +140,50 @@ sub getclientsproducts {
 L<http://docs.whmcs.com/API:Get_Clients_Products>
 
 =cut
+
+sub updateclientproduct {
+	my ($self, $params) = @_;
+	$params ||= {};
+	$params->{action} = 'updateclientproduct';
+	croak 'serviceid is required.' unless $params->{serviceid};
+	return $self->build_request($params);
+}
+
+=pod
+
+=head2 updateclientproduct
+
+	$client->getclientsproducts({
+		serviceid => 1,
+		...
+	})
+
+L<http://docs.whmcs.com/API:Update_Client_Product>
+
+=cut
+
+sub validatelogin {
+	my ($self, $params) = @_;
+	$params ||= {};
+	$params->{action} = 'validatelogin';
+	croak 'email is required.' unless $params->{email};
+	croak 'password2 is required' unless $params->{password2};
+	return $self->build_request($params);
+}
+
+=pod
+
+=head2 validatelogin
+
+	$client->validatelogin({
+		email => 'user@domain.com',
+		password2 => 'abc123'
+	})
+
+L<http://docs.whmcs.com/API:Validate_Login>
+
+=cut
+
 
 sub sendemail {
 	my ($self, $params) = @_;

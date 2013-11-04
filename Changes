@@ -1,5 +1,8 @@
 Revision history for Perl extension Net-WHMCS
 
+0.03	2013-11-04
+	- add more like updateclientproduct, validatelogin
+
 0.02	2013-10-22
 	- remove Dumper debug
 
