@@ -15,7 +15,7 @@ sub openticket {
 
 =head2 openticket
 
-	$client->openticket({
+	$whmcs->support->openticket({
 		clientid => 1,
 		deptid => 1,
 		subject => 'subject',

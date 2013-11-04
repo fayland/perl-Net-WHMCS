@@ -1,5 +1,8 @@
 Revision history for Perl extension Net-WHMCS
 
+0.06	2013-11-04
+	- add Order
+
 0.05	2013-11-04
 	- fix broken tests
 

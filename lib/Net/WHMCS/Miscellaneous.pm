@@ -20,7 +20,7 @@ sub addproduct {
 
 =head2 addproduct
 
-	$client->addproduct({
+	$whmcs->misc->addproduct({
 		type => 'other',
 		gid => 1,
 		name => 'Sample Product',
