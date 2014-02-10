@@ -87,6 +87,24 @@ L<http://docs.whmcs.com/API:Delete_Client>
 
 =cut
 
+sub closeclient {
+    my ( $self, $params ) = @_;
+    $params->{action} = 'closeclient';
+    return $self->build_request($params);
+}
+
+=pod
+
+=head2 closeclient
+
+	$client->closeclient({
+		clientid => 1
+	})
+
+L<http://docs.whmcs.com/API:Close_Client>
+
+=cut
+
 sub getclients {
 	my ($self, $params) = @_;
 	$params ||= {};
