@@ -46,6 +46,10 @@ has 'misc' => (is => 'lazy');
 sub _build_misc {
 	Net::WHMCS::Miscellaneous->new((shift)->_build_args());
 }
+
+1;
+__END__
+
 =pod
 
 =head1 SYNOPSIS
@@ -116,7 +120,3 @@ L<Net::WHMCS::Order>
 	});
 
 L<Net::WHMCS::Miscellaneous>
-
-=cut
-
-1;
