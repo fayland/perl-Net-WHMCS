@@ -53,6 +53,25 @@ L<http://docs.whmcs.com/API:Accept_Order>
 
 =cut
 
+sub deleteorder {
+	my ($self, $params) = @_;
+	$params->{action} = 'deleteorder';
+	croak "orderid is required." unless exists $params->{orderid};
+	return $self->build_request($params);
+}
+
+=pod
+
+=head2 deleteorder
+
+	$client->deleteorder({
+		orderid => 1
+	});
+
+L<http://docs.whmcs.com/API:Delete_Order>
+
+=cut
+
 sub getproducts {
 	my ($self, $params) = @_;
 	$params->{action} = 'getproducts';
@@ -61,7 +80,7 @@ sub getproducts {
 
 =pod
 
-=head2 addorder
+=head2 getproducts
 
 	$client->getproducts();
 
