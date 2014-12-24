@@ -99,9 +99,28 @@ sub closeclient {
 
 	$client->closeclient({
 		clientid => 1
-	})
+	});
 
 L<http://docs.whmcs.com/API:Close_Client>
+
+=cut
+
+sub addclientnote {
+	my ( $self, $params ) = @_;
+    $params->{action} = 'addclientnote';
+    return $self->build_request($params);
+}
+
+=pod
+
+=head2 addclientnote
+
+	$client->addclientnote({
+		userid => 1,
+		notes => 'Test Message'
+	});
+
+L<http://docs.whmcs.com/API:Add_Client_Note>
 
 =cut
 

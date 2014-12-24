@@ -1,5 +1,8 @@
 Revision history for Perl extension Net-WHMCS
 
+0.09
+    - add addclientnote
+
 0.08    2014-10-21
     - add deleteorder (by mschout)
 
