@@ -9,7 +9,7 @@ use Carp 'croak';
 
 sub getclientsdetails {
 	my ($self, $params) = @_;
-	$params->{action} = 'getclientsdetails';
+	$params->{action} = 'GetClientsDetails';
 	return $self->build_request($params);
 }
 
@@ -22,13 +22,13 @@ sub getclientsdetails {
 		stats => 'true',
 	})
 
-L<http://docs.whmcs.com/API:Get_Clients_Details>
+L<https://developers.whmcs.com/api-reference/getclientsdetails/>
 
 =cut
 
 sub addclient {
 	my ($self, $params) = @_;
-	$params->{action} = 'addclient';
+	$params->{action} = 'AddClient';
 	return $self->build_request($params);
 }
 
@@ -43,13 +43,13 @@ sub addclient {
 		...
 	})
 
-L<http://docs.whmcs.com/API:Add_Client>
+L<https://developers.whmcs.com/api-reference/addclient/>
 
 =cut
 
 sub updateclient {
 	my ($self, $params) = @_;
-	$params->{action} = 'updateclient';
+	$params->{action} = 'UpdateClient';
 	return $self->build_request($params);
 }
 
@@ -65,13 +65,13 @@ sub updateclient {
 		...
 	})
 
-L<http://docs.whmcs.com/API:Update_Client>
+L<https://developers.whmcs.com/api-reference/updateclient/>
 
 =cut
 
 sub deleteclient {
 	my ($self, $params) = @_;
-	$params->{action} = 'deleteclient';
+	$params->{action} = 'DeleteClient';
 	return $self->build_request($params);
 }
 
@@ -83,13 +83,13 @@ sub deleteclient {
 		clientid => 1
 	})
 
-L<http://docs.whmcs.com/API:Delete_Client>
+L<https://developers.whmcs.com/api-reference/deleteclient/>
 
 =cut
 
 sub closeclient {
     my ( $self, $params ) = @_;
-    $params->{action} = 'closeclient';
+    $params->{action} = 'CloseClient';
     return $self->build_request($params);
 }
 
@@ -101,13 +101,13 @@ sub closeclient {
 		clientid => 1
 	});
 
-L<http://docs.whmcs.com/API:Close_Client>
+L<https://developers.whmcs.com/api-reference/closeclient/>
 
 =cut
 
 sub addclientnote {
 	my ( $self, $params ) = @_;
-    $params->{action} = 'addclientnote';
+    $params->{action} = 'AddClientNote';
     return $self->build_request($params);
 }
 
@@ -120,14 +120,14 @@ sub addclientnote {
 		notes => 'Test Message'
 	});
 
-L<http://docs.whmcs.com/API:Add_Client_Note>
+L<https://developers.whmcs.com/api-reference/addclientnote/>
 
 =cut
 
 sub getclients {
 	my ($self, $params) = @_;
 	$params ||= {};
-	$params->{action} = 'getclients';
+	$params->{action} = 'GetClients';
 	return $self->build_request($params);
 }
 
@@ -137,13 +137,13 @@ sub getclients {
 
 	$client->getclients()
 
-L<http://docs.whmcs.com/API:Get_Clients>
+L<https://developers.whmcs.com/api-reference/getclients/>
 
 =cut
 
 sub getclientpassword {
 	my ($self, $params) = @_;
-	$params->{action} = 'getclientpassword';
+	$params->{action} = 'GetClientPassword';
 	return $self->build_request($params);
 }
 
@@ -155,14 +155,14 @@ sub getclientpassword {
 		userid => 1
 	})
 
-L<http://docs.whmcs.com/API:Get_Clients_Password>
+L<https://developers.whmcs.com/api-reference/getclientpassword/>
 
 =cut
 
 sub getclientsproducts {
 	my ($self, $params) = @_;
 	$params ||= {};
-	$params->{action} = 'getclientsproducts';
+	$params->{action} = 'GetClientsProducts';
 	return $self->build_request($params);
 }
 
@@ -174,14 +174,14 @@ sub getclientsproducts {
 		clientid => 1
 	})
 
-L<http://docs.whmcs.com/API:Get_Clients_Products>
+L<https://developers.whmcs.com/api-reference/getclientsproducts/>
 
 =cut
 
 sub updateclientproduct {
 	my ($self, $params) = @_;
 	$params ||= {};
-	$params->{action} = 'updateclientproduct';
+	$params->{action} = 'UpdateClientProduct';
 	croak 'serviceid is required.' unless $params->{serviceid};
 	return $self->build_request($params);
 }
@@ -195,14 +195,14 @@ sub updateclientproduct {
 		...
 	});
 
-L<http://docs.whmcs.com/API:Update_Client_Product>
+L<https://developers.whmcs.com/api-reference/updateclientproduct/>
 
 =cut
 
 sub upgradeproduct {
 	my ($self, $params) = @_;
 	$params ||= {};
-	$params->{action} = 'upgradeproduct';
+	$params->{action} = 'UpgradeProduct';
 	foreach my $r (qw/clientid serviceid type newproductid newproductbillingcycle paymentmethod/) {
 		croak "$r is required." unless $params->{$r};
 	}
@@ -222,14 +222,14 @@ sub upgradeproduct {
 		paymentmethod => 'paypal'
 	});
 
-L<http://docs.whmcs.com/API:Upgrade_Product>
+L<https://developers.whmcs.com/api-reference/upgradeproduct/>
 
 =cut
 
 sub validatelogin {
 	my ($self, $params) = @_;
 	$params ||= {};
-	$params->{action} = 'validatelogin';
+	$params->{action} = 'ValidateLogin';
 	croak 'email is required.' unless $params->{email};
 	croak 'password2 is required' unless $params->{password2};
 	return $self->build_request($params);
@@ -244,7 +244,7 @@ sub validatelogin {
 		password2 => 'abc123'
 	});
 
-L<http://docs.whmcs.com/API:Validate_Login>
+L<https://developers.whmcs.com/api-reference/validatelogin/>
 
 =cut
 
@@ -252,7 +252,7 @@ L<http://docs.whmcs.com/API:Validate_Login>
 sub sendemail {
 	my ($self, $params) = @_;
 	$params ||= {};
-	$params->{action} = 'sendemail';
+	$params->{action} = 'SendEmail';
 	return $self->build_request($params);
 }
 
@@ -265,7 +265,7 @@ sub sendemail {
 		messagename => 'blabla'
 	})
 
-L<http://docs.whmcs.com/API:Send_Email>
+L<https://developers.whmcs.com/api-reference/sendemail/>
 
 =cut
 

@@ -71,7 +71,7 @@ __END__
 
 =head1 DESCRIPTION
 
-L<http://docs.whmcs.com/API#Internal_API>
+L<https://developers.whmcs.com/api/>
 
 NOTE: the modules are incomplete. please feel free to fork on github L<https://github.com/fayland/perl-Net-WHMCS> and send me pull requests.
 

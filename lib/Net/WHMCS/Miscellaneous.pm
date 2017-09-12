@@ -9,8 +9,8 @@ use Carp 'croak';
 
 sub addproduct {
 	my ($self, $params) = @_;
-	$params->{action} = 'addproduct';
-	foreach my $r (qw/type gid name paytype/) {
+	$params->{action} = 'AddProduct';
+	foreach my $r (qw/gid name/) {
 		croak "$r is required." unless $params->{$r};
 	}
 	return $self->build_request($params);
@@ -30,7 +30,7 @@ sub addproduct {
 		...
 	});
 
-L<http://docs.whmcs.com/API:Add_Product>
+L<https://developers.whmcs.com/api-reference/addproduct/>
 
 =cut
 

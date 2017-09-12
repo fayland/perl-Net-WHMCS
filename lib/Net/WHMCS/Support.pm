@@ -7,7 +7,7 @@ with 'Net::WHMCS::Base';
 
 sub openticket {
 	my ($self, $params) = @_;
-	$params->{action} = 'openticket';
+	$params->{action} = 'OpenTicket';
 	return $self->build_request($params);
 }
 
@@ -22,7 +22,7 @@ sub openticket {
 		message => 'message'
 	});
 
-L<http://docs.whmcs.com/API:Open_Ticket>
+L<https://developers.whmcs.com/api-reference/openticket/>
 
 =cut
 

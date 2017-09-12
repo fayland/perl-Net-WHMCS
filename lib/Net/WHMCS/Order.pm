@@ -9,7 +9,7 @@ use Carp 'croak';
 
 sub addorder {
 	my ($self, $params) = @_;
-	$params->{action} = 'addorder';
+	$params->{action} = 'AddOrder';
 	foreach my $r (qw/clientid pid/) {
 		croak "$r is required." unless exists $params->{$r};
 	}
@@ -28,13 +28,13 @@ sub addorder {
 		...
 	});
 
-L<http://docs.whmcs.com/API:Add_Order>
+L<https://developers.whmcs.com/api-reference/addorder/>
 
 =cut
 
 sub acceptorder {
 	my ($self, $params) = @_;
-	$params->{action} = 'acceptorder';
+	$params->{action} = 'AcceptOrder';
 	foreach my $r (qw/orderid/) {
 		croak "$r is required." unless exists $params->{$r};
 	}
@@ -49,13 +49,13 @@ sub acceptorder {
 		orderid => 1
 	});
 
-L<http://docs.whmcs.com/API:Accept_Order>
+L<https://developers.whmcs.com/api-reference/acceptorder/>
 
 =cut
 
 sub deleteorder {
 	my ($self, $params) = @_;
-	$params->{action} = 'deleteorder';
+	$params->{action} = 'DeleteOrder';
 	croak "orderid is required." unless exists $params->{orderid};
 	return $self->build_request($params);
 }
@@ -68,13 +68,13 @@ sub deleteorder {
 		orderid => 1
 	});
 
-L<http://docs.whmcs.com/API:Delete_Order>
+L<https://developers.whmcs.com/api-reference/deleteorder/>
 
 =cut
 
 sub getproducts {
 	my ($self, $params) = @_;
-	$params->{action} = 'getproducts';
+	$params->{action} = 'GetProducts';
 	return $self->build_request($params);
 }
 
@@ -84,7 +84,7 @@ sub getproducts {
 
 	$client->getproducts();
 
-L<http://docs.whmcs.com/API:Get_Products>
+L<https://developers.whmcs.com/api-reference/getproducts/>
 
 =cut
 
