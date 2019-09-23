@@ -6,16 +6,25 @@ use Moo;
 use Carp 'croak';
 
 has 'WHMCS_URL' => (is => 'rw', required => 1);
-has 'WHMCS_USERNAME' => (is => 'rw', required => 1);
-has 'WHMCS_PASSWORD' => (is => 'rw', required => 1);
+
+has 'api_identifier' => (is => 'ro');
+has 'api_secret' => (is => 'ro');
+
+has 'WHMCS_USERNAME' => (is => 'rw');
+has 'WHMCS_PASSWORD' => (is => 'rw');
 has 'WHMCS_API_ACCESSKEY'  => (is => 'rw');
 
 sub _build_args {
 	my ($self) = @_;
 
 	my $args = { WHMCS_URL => $self->WHMCS_URL };
-	$args->{WHMCS_USERNAME} = $self->WHMCS_USERNAME;
-	$args->{WHMCS_PASSWORD} = $self->WHMCS_PASSWORD;
+
+	# https://developers.whmcs.com/api/authentication/
+	$args->{api_identifier} = $self->api_identifier if $self->api_identifier;
+	$args->{api_secret} = $self->api_secret if $self->api_secret;
+
+	$args->{WHMCS_USERNAME} = $self->WHMCS_USERNAME if $self->WHMCS_USERNAME;
+	$args->{WHMCS_PASSWORD} = $self->WHMCS_PASSWORD if $self->WHMCS_PASSWORD;
 	$args->{WHMCS_API_ACCESSKEY} = $self->WHMCS_API_ACCESSKEY if $self->WHMCS_API_ACCESSKEY;
 
 	return $args;
@@ -59,9 +68,8 @@ __END__
 
 	my $whmcs = Net::WHMCS->new(
 		WHMCS_URL => 'http://example.com/whmcs/includes/api.php',
-		WHMCS_USERNAME => 'admin_user',
-		WHMCS_PASSWORD => md5_hex('admin_pass'),
-		# WHMCS_API_ACCESSKEY => 'faylandtest', # optional, to pass the IP, http://docs.whmcs.com/API:Access_Keys
+		api_identifier => 'D4j1dKYE3g40VROOPCGyJ9zRwP0ADJIv',
+		api_secret => 'F1CKGXRIpylMfsrig3mwwdSdYUdLiFlo',
 	);
 
 	my $user = $whmcs->client->getclientsdetails({

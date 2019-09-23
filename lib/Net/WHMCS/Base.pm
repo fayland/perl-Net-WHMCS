@@ -8,8 +8,12 @@ use LWP::UserAgent;
 use JSON;
 
 has 'WHMCS_URL' => (is => 'rw', required => 1);
-has 'WHMCS_USERNAME' => (is => 'rw', required => 1);
-has 'WHMCS_PASSWORD' => (is => 'rw', required => 1);
+
+has 'api_identifier' => (is => 'ro');
+has 'api_secret' => (is => 'ro');
+
+has 'WHMCS_USERNAME' => (is => 'rw');
+has 'WHMCS_PASSWORD' => (is => 'rw');
 has 'WHMCS_API_ACCESSKEY'  => (is => 'rw');
 
 has 'ua' => (is => 'lazy');
@@ -24,9 +28,14 @@ sub build_request {
 		croak "No API action set\n";
 	}
 
-	$params->{username} = $self->WHMCS_USERNAME;
-	$params->{password} = $self->WHMCS_PASSWORD;
-	$params->{accesskey} = $self->WHMCS_API_ACCESSKEY if $self->WHMCS_API_ACCESSKEY;
+	if ($self->api_identifier) {
+		$params->{identifier} = $self->api_identifier;
+		$params->{secret} = $self->api_secret;
+	} else {
+		$params->{username} = $self->WHMCS_USERNAME;
+		$params->{password} = $self->WHMCS_PASSWORD;
+		$params->{accesskey} = $self->WHMCS_API_ACCESSKEY if $self->WHMCS_API_ACCESSKEY;
+	}
 
 	$params->{responsetype} = 'json';
 
